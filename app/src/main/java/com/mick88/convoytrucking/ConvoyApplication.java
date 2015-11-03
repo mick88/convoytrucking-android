@@ -6,4 +6,8 @@ import android.app.Application;
  * Created by Michal on 03/11/2015.
  */
 public class ConvoyApplication extends Application {
+    @Override
+    public void onCreate() {
+        super.onCreate();
+    }
 }
