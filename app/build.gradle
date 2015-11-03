@@ -32,6 +32,7 @@ android {
         targetSdkVersion 23
         versionCode getVersionCode()
         versionName getVersionName()
+        buildConfigField "String", "BASE_URL", '"http://convoytrucking.net/"'
     }
     buildTypes {
         release {
