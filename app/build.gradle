@@ -1,5 +1,27 @@
 apply plugin: 'com.android.application'
 
+def getVersionName = { ->
+    def stdout = new ByteArrayOutputStream()
+    // Automatically generate version name from latest git tag
+    // If for some reason you cant run git describe, replace this method with a literal string
+    exec {
+        commandLine 'git', 'describe', '--tags'
+        standardOutput = stdout
+    }
+    return stdout.toString().trim()
+}
+
+def getVersionCode = { ->
+    def stdout = new ByteArrayOutputStream()
+    // Automatically generate version number based on the number of commits
+    // If for some reason you cant run git describe, replace this method with a literal integer
+    exec {
+        commandLine 'git', 'rev-list', 'HEAD', '--count'
+        standardOutput = stdout
+    }
+    return stdout.toString().trim().toInteger()
+}
+
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.2"
@@ -8,8 +30,8 @@ android {
         applicationId "com.mick88.convoytrucking"
         minSdkVersion 16
         targetSdkVersion 23
-        versionCode 7
-        versionName "0.6.2"
+        versionCode getVersionCode()
+        versionName getVersionName()
     }
     buildTypes {
         release {
