@@ -39,7 +39,7 @@ public class ModelRequest<T> extends Request<T> {
     @Override
     protected Response<T> parseNetworkResponse(NetworkResponse response) {
         try {
-            final T object = getResponseObject(response);
+            final T object = parseJson(response);
             return Response.success(object, HttpHeaderParser.parseCacheHeaders(response));
         } catch (UnsupportedEncodingException e) {
             return Response.error(new ParseError(e));
@@ -50,7 +50,7 @@ public class ModelRequest<T> extends Request<T> {
         }
     }
 
-    private T getResponseObject(NetworkResponse response) throws IOException {
+    protected T parseJson(NetworkResponse response) throws IOException {
         ByteArrayInputStream stream = new ByteArrayInputStream(response.data);
         final String charset = HttpHeaderParser.parseCharset(response.headers, ApiConstants.ENCODING);
         InputStreamReader reader = new InputStreamReader(stream, charset);

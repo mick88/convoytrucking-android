@@ -1,6 +1,7 @@
 package com.mick88.convoytrucking.base;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,8 +31,13 @@ public abstract class ApiFragment<T> extends BaseFragment implements Response.Li
     protected abstract Class<T> getModelClass();
 
     protected void sendRequest() {
-        currentRequest = new ModelRequest<>(ApiConstants.API_CHAT, getModelClass(), this, this);
+        currentRequest = createRequest();
         sendRequest(currentRequest);
+    }
+
+    @NonNull
+    protected ModelRequest<T> createRequest() {
+        return new ModelRequest<>(ApiConstants.API_CHAT, getModelClass(), this, this);
     }
 
     @Nullable
