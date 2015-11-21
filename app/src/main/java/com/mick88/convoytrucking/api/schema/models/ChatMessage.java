@@ -1,5 +1,7 @@
 package com.mick88.convoytrucking.api.schema.models;
 
+import android.text.TextUtils;
+
 import java.util.Locale;
 
 /**
@@ -28,6 +30,6 @@ public class ChatMessage extends BaseModel {
     }
 
     public boolean isSystemMessage() {
-        return sender == null;
+        return TextUtils.isEmpty(this.sender);
     }
 }
