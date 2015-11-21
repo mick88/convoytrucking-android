@@ -45,6 +45,7 @@ android {
         }
         development {
             buildConfigField "String", "BASE_URL", '"http://test.convoytrucking.net/"'
+            applicationId "com.mick88.convoytest"
         }
     }
 }
