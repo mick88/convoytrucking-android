@@ -6,6 +6,16 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/grey_light</item>
+    </style>
+
+    <style name="card" parent="CardView">
+        <!-- Base style for all cards to add ripple effect and make margins consistend across android versions-->
+        <item name="android:foreground">?selectableItemBackground</item>
+        <item name="cardUseCompatPadding">true</item>
+        <item name="cardCornerRadius">1dp</item>
+        <item name="cardBackgroundColor">@color/cardview_light_background</item>
+        <item name="android:layout_margin">@dimen/card_margin</item>
     </style>
 
 </resources>

@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import com.mick88.convoytrucking.base.BaseActivity;
 import com.mick88.convoytrucking.base.BaseFragment;
 import com.mick88.convoytrucking.chat.ChatFragment;
+import com.mick88.convoytrucking.server_info.ServerInfoFragment;
 
 /**
  * Created by Michal on 03/11/2015.
@@ -27,7 +28,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         setupNavDrawer();
 
         if (savedInstanceState == null) {
-            ChatFragment fragment = new ChatFragment();
+            BaseFragment fragment = new ServerInfoFragment();
             showFragment(fragment);
         }
     }
@@ -69,12 +70,21 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
 
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
+        BaseFragment fragment = null;
         switch (item.getItemId()) {
             case R.id.menu_chat:
-                ChatFragment fragment = new ChatFragment();
-                showFragment(fragment);
-                drawer.closeDrawers();
-                return true;
+                fragment = new ChatFragment();
+                break;
+
+            case R.id.menu_server_info:
+                fragment = new ServerInfoFragment();
+                break;
+        }
+        if (fragment != null) {
+            showFragment(fragment);
+            drawer.closeDrawers();
+            item.setChecked(true);
+            return true;
         }
         return false;
     }

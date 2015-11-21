@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Generic colour definitions -->
     <color name="transparent">@android:color/transparent</color>
+    <color name="white">#fff</color>
+    <color name="black">#000</color>
+    <color name="red">#f00</color>
+    <color name="orangered">#DB5948</color>
+    <color name="green">#0f0</color>
+    <color name="blue">#00f</color>
+    <color name="yellow">#ff0</color>
+    <color name="orange">#f80</color>
+    <color name="gold">#EEC900</color>
+    <color name="grey">#ccc</color>
+    <color name="grey_808080">#808080</color>
+    <color name="grey_transparent">#cccc</color>
+    <color name="grey_light">#fff2f0f0</color>
+    <color name="black_transparent">#c000</color>
+    <color name="black_transparent_7">#7000</color>
+    <color name="black_transparent_9">#9000</color>
 
     <color name="colorPrimary">#000</color>
     <color name="colorPrimaryDark">#333</color>
