@@ -15,13 +15,13 @@ public class ServerInfo {
     @SerializedName("samp_address")
     String sampAddress;
     @SerializedName("samp_port")
-    String sampPort;
+    int sampPort;
     @SerializedName("server_status")
     String serverStatus;
     @SerializedName("num_players")
-    String numPlayers;
+    Integer numPlayers;
     @SerializedName("max_players")
-    String maxPlayers;
+    Integer maxPlayers;
     @SerializedName("gamemode")
     String gamemode;
     @SerializedName("last_restart")
@@ -31,7 +31,7 @@ public class ServerInfo {
         return sampAddress;
     }
 
-    public String getSampPort() {
+    public int getSampPort() {
         return sampPort;
     }
 
@@ -39,11 +39,11 @@ public class ServerInfo {
         return serverStatus;
     }
 
-    public String getNumPlayers() {
+    public Integer getNumPlayers() {
         return numPlayers;
     }
 
-    public String getMaxPlayers() {
+    public Integer getMaxPlayers() {
         return maxPlayers;
     }
 
