@@ -67,4 +67,8 @@ public class ServerInfo {
             return this.serverStatus;
         }
     }
+
+    public int getUptime() {
+        return (int)(System.currentTimeMillis() / 1000l) - lastRestart;
+    }
 }
