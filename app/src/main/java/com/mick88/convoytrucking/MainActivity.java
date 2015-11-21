@@ -4,8 +4,8 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import com.mick88.convoytrucking.base.BaseActivity;
@@ -38,12 +38,11 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     }
 
     void setupNavDrawer() {
-        final ActionBar actionBar = getSupportActionBar();
-        actionBar.setHomeButtonEnabled(true);
-        actionBar.setDisplayHomeAsUpEnabled(true);
+        final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         drawer = (DrawerLayout) findViewById(R.id.navDrawer);
-        drawerToggle = new ActionBarDrawerToggle(this, drawer, R.string.drawer_open, R.string.drawer_closed);
+        drawerToggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.drawer_open, R.string.drawer_closed);
         drawer.setDrawerListener(drawerToggle);
 
         final NavigationView navigationView = (NavigationView) findViewById(R.id.navigationView);
