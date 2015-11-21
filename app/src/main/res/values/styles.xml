@@ -1,7 +1,10 @@
 <resources>
 
+    <style name="BaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    </style>
+
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="BaseTheme">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -16,6 +19,12 @@
         <item name="cardCornerRadius">1dp</item>
         <item name="cardBackgroundColor">@color/cardview_light_background</item>
         <item name="android:layout_margin">@dimen/card_margin</item>
+    </style>
+
+    <style name="Toolbar" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
     </style>
 
 </resources>
