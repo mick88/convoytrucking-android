@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.mick88.convoytrucking.R;
-import com.mick88.convoytrucking.api.ApiConstants;
 import com.mick88.convoytrucking.api.ModelRequest;
 
 /**
@@ -21,6 +20,7 @@ import com.mick88.convoytrucking.api.ModelRequest;
 public abstract class ApiFragment<T> extends BaseFragment implements Response.Listener<T> {
 
     private ModelRequest<T> currentRequest;
+    protected String url = null;
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
@@ -37,7 +37,12 @@ public abstract class ApiFragment<T> extends BaseFragment implements Response.Li
 
     @NonNull
     protected ModelRequest<T> createRequest() {
-        return new ModelRequest<>(ApiConstants.API_CHAT, getModelClass(), this, this);
+        if (url == null) throw new NullPointerException("API url is not set");
+        return new ModelRequest<>(url, getModelClass(), this, this);
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     @Nullable
