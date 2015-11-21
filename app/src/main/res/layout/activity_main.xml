@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merge xmlns:android="http://schemas.android.com/apk/res/android">
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <android.support.v4.widget.DrawerLayout
         android:id="@+id/navDrawer"
@@ -14,6 +15,7 @@
         <android.support.design.widget.NavigationView
             android:layout_width="240dp"
             android:layout_height="match_parent"
-            android:layout_gravity="start" />
+            android:layout_gravity="start"
+            app:menu="@menu/nav_drawer"/>
     </android.support.v4.widget.DrawerLayout>
 </merge>
