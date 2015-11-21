@@ -14,13 +14,15 @@
             android:id="@+id/tvGamemode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:text="Gamemode"
-            android:textAppearance="?android:textAppearanceMedium" />
+            android:textAppearance="?android:textAppearanceLarge" />
 
         <TextView
             android:id="@+id/tvServerAddress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:text="Server Address"
             android:textAppearance="?android:textAppearanceMedium" />
 
@@ -28,6 +30,7 @@
             android:id="@+id/tvPlayersOnline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:text="@string/players_online_s"
             android:textAppearance="?android:textAppearanceMedium" />
 
