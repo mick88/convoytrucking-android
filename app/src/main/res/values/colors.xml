@@ -11,6 +11,7 @@
     <color name="yellow">#ff0</color>
     <color name="orange">#f80</color>
     <color name="gold">#EEC900</color>
+    <color name="skyblue">#87CEEB</color>
     <color name="grey">#ccc</color>
     <color name="grey_808080">#808080</color>
     <color name="grey_transparent">#cccc</color>
@@ -22,4 +23,7 @@
     <color name="colorPrimary">#000</color>
     <color name="colorPrimaryDark">#333</color>
     <color name="colorAccent">#ff7e00</color>
+
+    <color name="player_name">@color/yellow</color>
+    <color name="system_message">@color/grey_808080</color>
 </resources>
