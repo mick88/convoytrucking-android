@@ -3,4 +3,9 @@
     android:id="@android:id/text1"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:textAppearance="?android:textAppearanceInverse"
+    android:typeface="monospace"
+    android:textIsSelectable="true"
+    android:shadowRadius="4"
+    android:shadowColor="@color/black"
     android:padding="2dp" />
