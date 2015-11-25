@@ -10,5 +10,9 @@
             android:id="@+id/menu_chat"
             android:icon="@drawable/ic_chat"
             android:title="@string/chat" />
+        <item
+            android:id="@+id/menu_houses"
+            android:icon="@drawable/ic_house"
+            android:title="@string/houses" />
     </group>
 </menu>

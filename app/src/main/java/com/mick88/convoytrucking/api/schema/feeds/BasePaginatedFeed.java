@@ -23,4 +23,9 @@ public abstract class BasePaginatedFeed<T> {
     public T[] getResults() {
         return results;
     }
+
+    @Override
+    public String toString() {
+        return results.toString();
+    }
 }

@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import com.mick88.convoytrucking.base.BaseActivity;
 import com.mick88.convoytrucking.base.BaseFragment;
 import com.mick88.convoytrucking.chat.ChatFragment;
+import com.mick88.convoytrucking.houses.HouseListFragment;
 import com.mick88.convoytrucking.server_info.ServerInfoFragment;
 
 /**
@@ -77,6 +78,10 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
 
             case R.id.menu_server_info:
                 fragment = new ServerInfoFragment();
+                break;
+
+            case R.id.menu_houses:
+                fragment = new HouseListFragment();
                 break;
         }
         if (fragment != null) {

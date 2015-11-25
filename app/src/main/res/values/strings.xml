@@ -4,6 +4,7 @@
     <string name="drawer_closed">Drawer closed</string>
     <string name="chat">In-game chat</string>
     <string name="server_info">Server info</string>
+    <string name="houses">Houses</string>
     <string name="players_online_s">Players online: %1$s/%2$s</string>
     <string name="uptime_s">%s uptime</string>
 </resources>
