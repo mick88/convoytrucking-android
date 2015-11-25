@@ -8,7 +8,11 @@ import com.mick88.convoytrucking.BuildConfig;
 public class ApiConstants {
     public static final String BASE_API = BuildConfig.BASE_URL + "api/";
 
+    public static final String URL_STATICFILES = BuildConfig.BASE_URL + "static/";
+    public static final String URL_MEDIA = BuildConfig.BASE_URL + "media/";
+
     public static final String API_CHAT = BASE_API + "chat/";
+    public static final String API_HOUSES = BASE_API + "houses/";
     public static final String API_SERVER_INFO = BASE_API + "server-info";
 
     public static final String ENCODING = "utf-8";
