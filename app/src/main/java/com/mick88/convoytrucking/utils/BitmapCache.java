@@ -18,7 +18,7 @@ public class BitmapCache extends LruCache<String, Bitmap> implements ImageLoader
 	public final static float MAX_MEMORY_CONSUMPTION = 0.30f;
 
 	/**
-	 * Create new cache with default size
+	 * Create new cache with placeholder_house size
 	 */
 	public BitmapCache()
 	{

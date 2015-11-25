@@ -28,7 +28,7 @@ public class HouseListFragment extends ApiFragment<HouseFeed> {
     @Override
     public void onResponse(HouseFeed response) {
         super.onResponse(response);
-        final ArrayAdapter<House> houseAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, response.getResults());
+        final ArrayAdapter<House> houseAdapter = new HouseAdapter(getContext(), response.getResults());
 
         final ListView listView = (ListView) getView().findViewById(R.id.listView);
         listView.setAdapter(houseAdapter);
