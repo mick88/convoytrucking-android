@@ -39,8 +39,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     }
 
     void setupNavDrawer() {
-        final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        final Toolbar toolbar = initToolbar();
 
         drawer = (DrawerLayout) findViewById(R.id.navDrawer);
         drawerToggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.drawer_open, R.string.drawer_closed);

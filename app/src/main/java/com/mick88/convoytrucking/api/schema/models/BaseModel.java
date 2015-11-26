@@ -32,6 +32,9 @@ public abstract class BaseModel {
         BaseModel baseModel = (BaseModel) o;
 
         return !(id != null ? !id.equals(baseModel.id) : baseModel.id != null);
+    }
 
+    public Long getId() {
+        return id;
     }
 }

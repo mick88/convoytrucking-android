@@ -5,6 +5,8 @@
     <string name="chat">In-game chat</string>
     <string name="server_info">Server info</string>
     <string name="houses">Houses</string>
+    <string name="house">House</string>
     <string name="players_online_s">Players online: %1$s/%2$s</string>
     <string name="uptime_s">%s uptime</string>
+    <string name="error_request">Connection error</string>
 </resources>
