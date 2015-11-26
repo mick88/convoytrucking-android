@@ -22,7 +22,7 @@ public class House extends BaseModel {
     int price;
     String location;
     int parking;
-    @SerializedName("owner_id")
+    @SerializedName("ownerid")
     SimplePlayer owner;
 
     @Override
