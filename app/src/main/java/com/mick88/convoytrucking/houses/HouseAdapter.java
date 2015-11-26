@@ -38,7 +38,7 @@ public class HouseAdapter extends ArrayAdapter<House> {
     public View getView(int position, View view, ViewGroup parent) {
         final ViewHolder holder;
         if (view == null) {
-            view = LayoutInflater.from(getContext()).inflate(R.layout.item_house, parent, false);
+            view = LayoutInflater.from(getContext()).inflate(R.layout.card_house, parent, false);
             view.setTag(holder = new ViewHolder());
             holder.imageView = (NetworkImageView) view.findViewById(R.id.image);
             holder.tvAddress = (TextView) view.findViewById(R.id.tvAddress);
