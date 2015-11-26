@@ -36,6 +36,10 @@ public class HouseActivity extends BaseActivity implements Response.Listener<Hou
         setContentView(R.layout.activity_house);
         initToolbar();
         downloadData();
+
+        final NetworkImageView imageView = (NetworkImageView) findViewById(R.id.image);
+        imageView.setDefaultImageResId(R.drawable.placeholder_house);
+
     }
 
     @Override
@@ -64,7 +68,6 @@ public class HouseActivity extends BaseActivity implements Response.Listener<Hou
     void setData(House house) {
         final NetworkImageView imageView = (NetworkImageView) findViewById(R.id.image);
         final ImageLoader imageLoader = VolleySingleton.getInstance(this).getImageLoader();
-        imageView.setDefaultImageResId(R.drawable.placeholder_house);
         imageView.setImageUrl(house.getImageUrl(House.IMAGE_SIZE_MEDIUM), imageLoader);
 
         final TextView tvAddress = (TextView) findViewById(R.id.tvAddress);
