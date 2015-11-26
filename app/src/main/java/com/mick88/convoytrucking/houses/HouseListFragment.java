@@ -1,7 +1,7 @@
 package com.mick88.convoytrucking.houses;
 
 import android.support.annotation.NonNull;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.mick88.convoytrucking.R;
@@ -29,7 +29,8 @@ public class HouseListFragment extends ApiFragment<HouseFeed> {
         super.onResponse(response);
         final HouseAdapter houseAdapter = new HouseAdapter(getContext(), response.getResults());
         final RecyclerView recyclerView = (RecyclerView) getView().findViewById(R.id.recyclerView);
-        final RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
+        final int houseColumns = getResources().getInteger(R.integer.house_columns);
+        final RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getContext(), houseColumns);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(houseAdapter);
