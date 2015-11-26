@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="placeholoder_address">123 Test Area, San Andreas</string>
+    <string name="placeholoder_price">$1,000,000</string>
+    <string name="placeholder_playername">mick88</string>
+    <string name="placeholoder_slots">12 slots</string>
+</resources>

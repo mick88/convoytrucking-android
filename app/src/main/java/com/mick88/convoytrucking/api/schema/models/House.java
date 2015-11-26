@@ -14,7 +14,6 @@ public class House extends BaseModel {
     public static final String IMAGE_SIZE_MEDIUM = "medium";
     public static final String IMAGE_SIZE_SMALL = "small";
 
-
     @SerializedName("image_name")
     String imageName;
     float x, y, z, r;
@@ -23,6 +22,8 @@ public class House extends BaseModel {
     int price;
     String location;
     int parking;
+    @SerializedName("owner_id")
+    SimplePlayer owner;
 
     @Override
     public String toString() {
@@ -80,5 +81,13 @@ public class House extends BaseModel {
 
     public String getAddress() {
         return String.format(Locale.ENGLISH, "%d %s", id, location);
+    }
+
+    public SimplePlayer getOwner() {
+        return owner;
+    }
+
+    public boolean isForSale() {
+        return owner == null;
     }
 }

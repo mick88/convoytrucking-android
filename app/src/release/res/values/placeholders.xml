@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="placeholoder_address" />
+    <string name="placeholoder_price" />
+    <string name="placeholder_playername" />
+    <string name="placeholoder_slots" />
+</resources>

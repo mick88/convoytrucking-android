@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.volley.Response;
@@ -72,8 +73,19 @@ public class HouseActivity extends BaseActivity implements Response.Listener<Hou
 
         final TextView tvAddress = (TextView) findViewById(R.id.tvAddress);
         final TextView tvPrice = (TextView) findViewById(R.id.tvPrice);
+        final TextView tvSlots = (TextView) findViewById(R.id.tvSlots);
+        final TextView tvOwner = (TextView) findViewById(R.id.tvOwner);
+        final ImageView imgIcon = (ImageView) findViewById(R.id.icon);
 
         tvAddress.setText(house.getAddress());
         tvPrice.setText(FormatUtils.formatPrice(house.getPrice()));
+        tvSlots.setText(getString(R.string.s_slots, house.getParking()));
+        if (house.isForSale()) {
+            imgIcon.setImageResource(R.drawable.ic_house_forsale);
+            tvOwner.setText(null);
+        } else {
+            imgIcon.setImageResource(R.drawable.ic_house_owned);
+            tvOwner.setText(house.getOwner().getName());
+        }
     }
 }

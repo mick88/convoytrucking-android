@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="10dp"
@@ -21,12 +21,45 @@
             android:id="@+id/tvAddress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/image"
+            android:text="@string/placeholoder_address"
             android:textAppearance="?android:textAppearanceMedium" />
 
         <TextView
             android:id="@+id/tvPrice"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvAddress"
+            android:text="@string/placeholoder_price" />
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/tvSlots"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/tvPrice"
+            android:layout_marginLeft="6dp"
+            android:layout_marginStart="6dp"
+            android:layout_toEndOf="@+id/tvPrice"
+            android:layout_toRightOf="@+id/tvPrice"
+            android:text="@string/placeholoder_slots" />
+
+        <TextView
+            android:id="@+id/tvOwner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvPrice"
+            android:text="@string/placeholder_playername"
+            android:textColor="@color/orangered"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_house_owned"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignBottom="@+id/tvOwner"/>
+
+    </RelativeLayout>
 </android.support.v7.widget.CardView>

@@ -26,4 +26,7 @@
 
     <color name="player_name">@color/yellow</color>
     <color name="system_message">@color/grey_808080</color>
+
+    <color name="house_owned">#B01818</color>
+    <color name="house_forsale">#78AC38</color>
 </resources>

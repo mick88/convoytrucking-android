@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.volley.toolbox.ImageLoader;
@@ -22,7 +23,8 @@ public class HouseAdapter extends ArrayAdapter<House> {
     private static class ViewHolder {
         NetworkImageView imageView;
         TextView tvAddress;
-        TextView tvPrice;
+        TextView tvPrice, tvSlots, tvOwner;
+        ImageView imgIcon;
     }
 
     private ImageLoader imageLoader;
@@ -41,6 +43,9 @@ public class HouseAdapter extends ArrayAdapter<House> {
             holder.imageView = (NetworkImageView) view.findViewById(R.id.image);
             holder.tvAddress = (TextView) view.findViewById(R.id.tvAddress);
             holder.tvPrice = (TextView) view.findViewById(R.id.tvPrice);
+            holder.tvSlots = (TextView) view.findViewById(R.id.tvSlots);
+            holder.tvOwner = (TextView) view.findViewById(R.id.tvOwner);
+            holder.imgIcon = (ImageView) view.findViewById(R.id.icon);
         } else {
             holder = (ViewHolder) view.getTag();
         }
@@ -51,6 +56,14 @@ public class HouseAdapter extends ArrayAdapter<House> {
         holder.imageView.setImageUrl(house.getImageUrl(House.IMAGE_SIZE_MEDIUM), imageLoader);
         holder.tvAddress.setText(house.getAddress());
         holder.tvPrice.setText(FormatUtils.formatPrice(house.getPrice()));
+        holder.tvSlots.setText(getContext().getString(R.string.s_slots, house.getParking()));
+        if (house.isForSale()) {
+            holder.imgIcon.setImageResource(R.drawable.ic_house_forsale);
+            holder.tvOwner.setText(null);
+        } else {
+            holder.imgIcon.setImageResource(R.drawable.ic_house_owned);
+            holder.tvOwner.setText(house.getOwner().getName());
+        }
         return view;
     }
 }
