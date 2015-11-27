@@ -24,6 +24,11 @@
             android:label="@string/house"
             android:parentActivityName=".MainActivity">
         </activity>
+        <activity
+            android:name=".players.PlayerActivity"
+            android:label="@string/player"
+            android:parentActivityName=".MainActivity">
+        </activity>
 
     </application>
 

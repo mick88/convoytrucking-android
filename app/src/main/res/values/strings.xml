@@ -11,4 +11,5 @@
     <string name="error_request">Connection error</string>
     <string name="s_slots">%d slots</string>
     <string name="current_owner">Current Owner</string>
+    <string name="player">Player</string>
 </resources>

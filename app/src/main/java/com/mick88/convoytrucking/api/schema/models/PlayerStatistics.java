@@ -114,4 +114,24 @@ public class PlayerStatistics extends BaseModel {
     public int getTruck_loads() {
         return truck_loads;
     }
+
+    public int getFuel() {
+        return fuel;
+    }
+
+    public int getInterest() {
+        return interest;
+    }
+
+    public int getOdometer() {
+        return odometer;
+    }
+
+    public int getTime() {
+        return time;
+    }
+
+    public String getUpdated() {
+        return updated;
+    }
 }
