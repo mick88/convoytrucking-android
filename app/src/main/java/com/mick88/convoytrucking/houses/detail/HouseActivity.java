@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,6 +17,7 @@ import com.mick88.convoytrucking.api.ApiConstants;
 import com.mick88.convoytrucking.api.ModelRequest;
 import com.mick88.convoytrucking.api.VolleySingleton;
 import com.mick88.convoytrucking.api.schema.models.House;
+import com.mick88.convoytrucking.api.schema.models.SimplePlayer;
 import com.mick88.convoytrucking.base.BaseActivity;
 import com.mick88.convoytrucking.utils.FormatUtils;
 
@@ -75,6 +77,7 @@ public class HouseActivity extends BaseActivity implements Response.Listener<Hou
         final TextView tvPrice = (TextView) findViewById(R.id.tvPrice);
         final TextView tvSlots = (TextView) findViewById(R.id.tvSlots);
         final TextView tvOwner = (TextView) findViewById(R.id.tvOwner);
+        final TextView tvPlayer = (TextView) findViewById(R.id.tvPlayer);
         final ImageView imgIcon = (ImageView) findViewById(R.id.icon);
 
         tvAddress.setText(house.getAddress());
@@ -85,7 +88,10 @@ public class HouseActivity extends BaseActivity implements Response.Listener<Hou
             tvOwner.setText(null);
         } else {
             imgIcon.setImageResource(R.drawable.ic_house_owned);
-            tvOwner.setText(house.getOwner().getName());
+            final SimplePlayer owner = house.getOwner();
+            tvOwner.setText(owner.getName());
+            tvPlayer.setText(owner.getName());
+            findViewById(R.id.layoutHouseOwner).setVisibility(View.VISIBLE);
         }
     }
 }

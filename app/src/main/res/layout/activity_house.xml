@@ -4,6 +4,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
         android:orientation="vertical">
 
         <include
@@ -13,5 +14,25 @@
 
         <include layout="@layout/card_house" />
 
+        <LinearLayout
+            android:id="@+id/layoutHouseOwner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/card_margin"
+                android:layout_marginStart="@dimen/card_margin"
+                android:text="@string/current_owner"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large.CardTitle"
+                android:textStyle="italic" />
+
+            <include layout="@layout/card_player_mini" />
+
+        </LinearLayout>
     </LinearLayout>
 </merge>

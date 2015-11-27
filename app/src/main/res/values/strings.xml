@@ -10,4 +10,5 @@
     <string name="uptime_s">%s uptime</string>
     <string name="error_request">Connection error</string>
     <string name="s_slots">%d slots</string>
+    <string name="current_owner">Current Owner</string>
 </resources>
