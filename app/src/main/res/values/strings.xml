@@ -6,6 +6,7 @@
     <string name="server_info">Server info</string>
     <string name="houses">Houses</string>
     <string name="house">House</string>
+    <string name="dealers">Vehicle dealers</string>
     <string name="players_online_s">Players online: %1$s/%2$s</string>
     <string name="uptime_s">%s uptime</string>
     <string name="error_request">Connection error</string>
@@ -20,4 +21,9 @@
     <string name="truck_loads_s">Truck Loads: %s</string>
     <string name="last_seen_s">Last seen: %s</string>
     <string name="server_staff">Server Staff</string>
+    <string name="num_vehicles">%d vehicles</string>
+    <string name="vehicles">Vehicles</string>
+    <string name="top_speed_s">Top speed: %s</string>
+    <string name="all_vehicles">All vehicles</string>
+    <string name="AllVehiclesCondensed">All</string>
 </resources>

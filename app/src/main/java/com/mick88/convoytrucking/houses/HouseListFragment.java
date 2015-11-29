@@ -29,8 +29,8 @@ public class HouseListFragment extends ApiFragment<HouseFeed> {
         super.onResponse(response);
         final HouseAdapter houseAdapter = new HouseAdapter(getContext(), response.getResults());
         final RecyclerView recyclerView = (RecyclerView) getView().findViewById(R.id.recyclerView);
-        final int houseColumns = getResources().getInteger(R.integer.house_columns);
-        final RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getContext(), houseColumns);
+        final int numColumns = getResources().getInteger(R.integer.grid_columns);
+        final RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getContext(), numColumns);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(houseAdapter);

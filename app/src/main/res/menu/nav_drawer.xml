@@ -14,5 +14,9 @@
             android:id="@+id/menu_houses"
             android:icon="@drawable/ic_house"
             android:title="@string/houses" />
+        <item
+            android:id="@+id/menu_dealers"
+            android:icon="@drawable/ic_dealer"
+            android:title="@string/dealers" />
     </group>
 </menu>
