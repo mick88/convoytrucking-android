@@ -1,5 +1,7 @@
 package com.mick88.convoytrucking.api.schema.feeds;
 
+import android.text.TextUtils;
+
 /**
  * Created by Michal on 03/11/2015.
  */
@@ -26,6 +28,6 @@ public abstract class BasePaginatedFeed<T> {
 
     @Override
     public String toString() {
-        return results.toString();
+        return TextUtils.join(", ", results);
     }
 }
