@@ -26,6 +26,7 @@ public class DealerViewHolder extends RecyclerView.ViewHolder implements View.On
         this.tvName = (TextView) itemView.findViewById(R.id.tvName);
         this.tvNumVehicles = (TextView) itemView.findViewById(R.id.tvNumVehicles);
 
+        imageView.setDefaultImageResId(R.drawable.ic_placeholder);
         itemView.setOnClickListener(this);
     }
 

@@ -21,5 +21,6 @@ public class VehicleViewHolder extends RecyclerView.ViewHolder {
         this.tvPrice = (TextView) itemView.findViewById(R.id.tvPrice);
         this.tvTopSpeed = (TextView) itemView.findViewById(R.id.tvTopSpeed);
 
+        imageView.setDefaultImageResId(R.drawable.ic_placeholder);
     }
 }
