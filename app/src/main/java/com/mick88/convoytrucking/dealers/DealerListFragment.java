@@ -33,7 +33,6 @@ public class DealerListFragment extends ApiFragment<DealerFeed> {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
 
-
         DealerAdapter adapter = new DealerAdapter(getContext(), response.getResults());
         recyclerView.setAdapter(adapter);
     }

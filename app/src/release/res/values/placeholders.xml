@@ -7,4 +7,5 @@
     <string name="placeholder_gamemode" />
     <string name="placeholder_server_address" />
     <string name="placeholoder_dealer_name" />
+    <string name="placeholoder_vehicle_name" />
 </resources>

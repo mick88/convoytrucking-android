@@ -22,4 +22,6 @@
     <string name="last_seen_s">Last seen: %s</string>
     <string name="server_staff">Server Staff</string>
     <string name="num_vehicles">%d vehicles</string>
+    <string name="vehicles">Vehicles</string>
+    <string name="top_speed_s">Top speed: %s</string>
 </resources>

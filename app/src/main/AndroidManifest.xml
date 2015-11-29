@@ -29,6 +29,11 @@
             android:label="@string/player"
             android:parentActivityName=".MainActivity">
         </activity>
+        <activity
+            android:name=".vehicles.VehicleListActivity"
+            android:label="@string/vehicles"
+            android:parentActivityName=".MainActivity">
+        </activity>
 
     </application>
 
