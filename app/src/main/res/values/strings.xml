@@ -24,4 +24,6 @@
     <string name="num_vehicles">%d vehicles</string>
     <string name="vehicles">Vehicles</string>
     <string name="top_speed_s">Top speed: %s</string>
+    <string name="all_vehicles">All vehicles</string>
+    <string name="AllVehiclesCondensed">All</string>
 </resources>
