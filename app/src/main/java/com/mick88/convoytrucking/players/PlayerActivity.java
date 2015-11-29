@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.widget.TextView;
 
 import com.android.volley.Response;
@@ -74,6 +75,28 @@ public class PlayerActivity extends BaseActivity implements Response.Listener<Pl
 
         final String name = player.getName();
         tvPlayer.setText(name);
+        int staffBadge = 0;
+        int vipBadge = 0;
+        if (player.isVip()) {
+            staffBadge = R.drawable.ic_vip;
+        }
+        if (player.isStaff()) {
+            staffBadge = R.drawable.ic_staff;
+            final TextView tvStaff = (TextView) findViewById(R.id.tvPlayerStaff);
+            tvStaff.setVisibility(View.VISIBLE);
+            switch (player.getMod()) {
+                case Player.MOD_ADMINISTRATOR:
+                    tvStaff.setText(R.string.staff_admin);
+                    break;
+                case Player.MOD_MODERATOR:
+                    tvStaff.setText(R.string.staff_mod);
+                    break;
+                case Player.MOD_JRMOD:
+                    tvStaff.setText(R.string.staff_jrmod);
+                    break;
+            }
+        }
+        tvPlayer.setCompoundDrawablesWithIntrinsicBounds(vipBadge, 0, staffBadge, 0);
 
         // scores
         final String score = FormatUtils.formatLargeNumber(player.getScore());
