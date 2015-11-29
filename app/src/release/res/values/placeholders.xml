@@ -6,4 +6,5 @@
     <string name="placeholoder_slots" />
     <string name="placeholder_gamemode" />
     <string name="placeholder_server_address" />
+    <string name="placeholoder_dealer_name" />
 </resources>

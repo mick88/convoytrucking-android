@@ -1,11 +1,13 @@
 package com.mick88.convoytrucking.api.schema.models;
 
 import com.google.gson.annotations.SerializedName;
+import com.mick88.convoytrucking.api.ApiConstants;
 
 /**
  * Created by Michal on 29/11/2015.
  */
 public class Dealer {
+    public static final String IMAGES_URL = ApiConstants.URL_STATICFILES;
     @SerializedName("dealerid")
     int dealerId;
     @SerializedName("offered_models")
@@ -84,5 +86,9 @@ public class Dealer {
     @Override
     public int hashCode() {
         return dealerId;
+    }
+
+    public String getImageUrl() {
+        return IMAGES_URL + getImagePath();
     }
 }

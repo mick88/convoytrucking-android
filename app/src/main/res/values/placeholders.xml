@@ -6,4 +6,5 @@
     <string name="placeholoder_slots">12 slots</string>
     <string name="placeholder_gamemode">Convoy Trucking</string>
     <string name="placeholder_server_address">127.0.0.1:7777</string>
+    <string name="placeholoder_dealer_name">Test Dealer</string>
 </resources>
