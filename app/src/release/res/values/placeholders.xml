@@ -4,4 +4,6 @@
     <string name="placeholoder_price" />
     <string name="placeholder_playername" />
     <string name="placeholoder_slots" />
+    <string name="placeholder_gamemode" />
+    <string name="placeholder_server_address" />
 </resources>
