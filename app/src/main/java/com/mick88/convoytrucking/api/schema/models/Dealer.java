@@ -1,12 +1,15 @@
 package com.mick88.convoytrucking.api.schema.models;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.SerializedName;
 import com.mick88.convoytrucking.api.ApiConstants;
 
 /**
  * Created by Michal on 29/11/2015.
  */
-public class Dealer {
+public class Dealer implements Parcelable {
     public static final String IMAGES_URL = ApiConstants.URL_STATICFILES;
     @SerializedName("dealerid")
     int dealerId;
@@ -91,4 +94,51 @@ public class Dealer {
     public String getImageUrl() {
         return IMAGES_URL + getImagePath();
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(this.dealerId);
+        dest.writeIntArray(this.offeredModels);
+        dest.writeString(this.imagePath);
+        dest.writeString(this.name);
+        dest.writeFloat(this.dealerx);
+        dest.writeFloat(this.dealery);
+        dest.writeFloat(this.dealerz);
+        dest.writeFloat(this.spawnx);
+        dest.writeFloat(this.spawny);
+        dest.writeFloat(this.spawnz);
+        dest.writeFloat(this.spawnr);
+    }
+
+    public Dealer() {
+    }
+
+    protected Dealer(Parcel in) {
+        this.dealerId = in.readInt();
+        this.offeredModels = in.createIntArray();
+        this.imagePath = in.readString();
+        this.name = in.readString();
+        this.dealerx = in.readFloat();
+        this.dealery = in.readFloat();
+        this.dealerz = in.readFloat();
+        this.spawnx = in.readFloat();
+        this.spawny = in.readFloat();
+        this.spawnz = in.readFloat();
+        this.spawnr = in.readFloat();
+    }
+
+    public static final Parcelable.Creator<Dealer> CREATOR = new Parcelable.Creator<Dealer>() {
+        public Dealer createFromParcel(Parcel source) {
+            return new Dealer(source);
+        }
+
+        public Dealer[] newArray(int size) {
+            return new Dealer[size];
+        }
+    };
 }

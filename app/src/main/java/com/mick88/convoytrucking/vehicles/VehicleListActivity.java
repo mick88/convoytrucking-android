@@ -29,7 +29,7 @@ public class VehicleListActivity extends BaseActivity implements Response.Listen
         downloadVehicles();
     }
 
-    void downloadVehicles() {
+    protected void downloadVehicles() {
         Request<VehicleFeed> request = new ModelRequest<>(ApiConstants.API_VEHICLES, VehicleFeed.class, this, this);
         sendRequest(request);
     }

@@ -8,12 +8,14 @@ import android.widget.TextView;
 
 import com.android.volley.toolbox.NetworkImageView;
 import com.mick88.convoytrucking.R;
-import com.mick88.convoytrucking.vehicles.VehicleListActivity;
+import com.mick88.convoytrucking.api.schema.models.Dealer;
+import com.mick88.convoytrucking.dealers.vehicles.DealerVehicleListActivity;
 
 /**
  * Created by Michal on 29/11/2015.
  */
 public class DealerViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public Dealer currentItem;
     final NetworkImageView imageView;
     final TextView tvName, tvNumVehicles;
 
@@ -29,8 +31,10 @@ public class DealerViewHolder extends RecyclerView.ViewHolder implements View.On
 
     @Override
     public void onClick(View v) {
-        final Context context = v.getContext();
-        Intent intent = VehicleListActivity.createIntent(context);
-        context.startActivity(intent);
+        if (currentItem != null) {
+            final Context context = v.getContext();
+            Intent intent = DealerVehicleListActivity.createIntent(context, currentItem);
+            context.startActivity(intent);
+        }
     }
 }

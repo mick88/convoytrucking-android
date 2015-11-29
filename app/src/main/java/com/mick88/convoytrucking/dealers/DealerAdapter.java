@@ -38,6 +38,8 @@ public class DealerAdapter extends RecyclerView.Adapter<DealerViewHolder> {
         holder.tvName.setText(dealer.getName());
         final String numVehicles = context.getString(R.string.num_vehicles, dealer.getOfferedModels().length);
         holder.tvNumVehicles.setText(numVehicles);
+
+        holder.currentItem = dealer;
     }
 
     @Override

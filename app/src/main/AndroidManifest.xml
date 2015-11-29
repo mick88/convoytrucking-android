@@ -34,6 +34,11 @@
             android:label="@string/vehicles"
             android:parentActivityName=".MainActivity">
         </activity>
+        <activity
+            android:name=".dealers.vehicles.DealerVehicleListActivity"
+            android:label="@string/vehicles"
+            android:parentActivityName=".MainActivity">
+        </activity>
 
     </application>
 
