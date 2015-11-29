@@ -39,48 +39,50 @@ public class ServerInfoFragment extends ApiFragment<ServerInfo> {
     @Override
     public void onResponse(ServerInfo info) {
         super.onResponse(info);
-        if (isAdded()) {
-            final View view = getView();
-            assert view != null;
-            final TextView tvServerAddress = (TextView) view.findViewById(R.id.tvServerAddress);
-            final TextView tvGamemode = (TextView) view.findViewById(R.id.tvGamemode);
-            final TextView tvPlayersOnline = (TextView) view.findViewById(R.id.tvPlayersOnline);
-            final TextView tvUptime = (TextView) view.findViewById(R.id.tvUptime);
-            final ProgressBar numPlayers = ((ProgressBar) view.findViewById(R.id.progressNumPlayers));
+        setServerInfo(info);
+    }
 
-            tvServerAddress.setText(String.format(Locale.ENGLISH, "%s:%s", info.getSampAddress(), info.getSampPort()));
-            tvGamemode.setText(info.getGamemode());
-            tvPlayersOnline.setText(getString(R.string.players_online_s, info.getNumPlayers(), info.getMaxPlayers()));
-            final int h = info.getUptime() / 60 / 60;
-            final String uptime;
-            if (h < 24) {
-                uptime = String.format(Locale.ENGLISH, "%d hours", h);
-            } else {
-                uptime = String.format(Locale.ENGLISH, "%d days", h / 24);
-            }
-            tvUptime.setText(getString(R.string.uptime_s, uptime));
+    protected void setServerInfo(ServerInfo serverInfo) {
+        final View view = getView();
+        assert view != null;
+        final TextView tvServerAddress = (TextView) view.findViewById(R.id.tvServerAddress);
+        final TextView tvGamemode = (TextView) view.findViewById(R.id.tvGamemode);
+        final TextView tvPlayersOnline = (TextView) view.findViewById(R.id.tvPlayersOnline);
+        final TextView tvUptime = (TextView) view.findViewById(R.id.tvUptime);
+        final ProgressBar numPlayers = ((ProgressBar) view.findViewById(R.id.progressNumPlayers));
 
-            if (info.getMaxPlayers() != null) {
-                numPlayers.setVisibility(View.VISIBLE);
-                numPlayers.setMax(info.getMaxPlayers());
-                numPlayers.setProgress(info.getNumPlayers());
-            } else {
-                numPlayers.setVisibility(View.GONE);
-            }
-
-            int icon = 0;
-            switch (info.getServerStatus()) {
-                case ServerInfo.SERVER_STATUS_ONLINE:
-                    icon = R.drawable.ic_status_online;
-                    break;
-                case ServerInfo.SERVER_STATUS_OFFLINE:
-                    icon = R.drawable.ic_status_offline;
-                    break;
-                case ServerInfo.SERVER_STATUS_LOCKED:
-                    icon = R.drawable.ic_status_locked;
-                    break;
-            }
-            tvServerAddress.setCompoundDrawablesWithIntrinsicBounds(0, 0, icon, 0);
+        tvServerAddress.setText(String.format(Locale.ENGLISH, "%s:%s", serverInfo.getSampAddress(), serverInfo.getSampPort()));
+        tvGamemode.setText(serverInfo.getGamemode());
+        tvPlayersOnline.setText(getString(R.string.players_online_s, serverInfo.getNumPlayers(), serverInfo.getMaxPlayers()));
+        final int h = serverInfo.getUptime() / 60 / 60;
+        final String uptime;
+        if (h < 24) {
+            uptime = String.format(Locale.ENGLISH, "%d hours", h);
+        } else {
+            uptime = String.format(Locale.ENGLISH, "%d days", h / 24);
         }
+        tvUptime.setText(getString(R.string.uptime_s, uptime));
+
+        if (serverInfo.getMaxPlayers() != null) {
+            numPlayers.setVisibility(View.VISIBLE);
+            numPlayers.setMax(serverInfo.getMaxPlayers());
+            numPlayers.setProgress(serverInfo.getNumPlayers());
+        } else {
+            numPlayers.setVisibility(View.GONE);
+        }
+
+        int icon = 0;
+        switch (serverInfo.getServerStatus()) {
+            case ServerInfo.SERVER_STATUS_ONLINE:
+                icon = R.drawable.ic_status_online;
+                break;
+            case ServerInfo.SERVER_STATUS_OFFLINE:
+                icon = R.drawable.ic_status_offline;
+                break;
+            case ServerInfo.SERVER_STATUS_LOCKED:
+                icon = R.drawable.ic_status_locked;
+                break;
+        }
+        tvServerAddress.setCompoundDrawablesWithIntrinsicBounds(0, 0, icon, 0);
     }
 }
