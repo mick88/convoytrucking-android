@@ -3,6 +3,8 @@ package com.mick88.convoytrucking.players;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
+import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
 
 import com.android.volley.Response;
@@ -36,6 +38,17 @@ public class PlayerActivity extends BaseActivity implements Response.Listener<Pl
         downloadData();
 
         setTitle(getIntent().getStringExtra(EXTRA_PLAYER_NAME));
+    }
+
+    @Override
+    protected Toolbar initToolbar() {
+        final Toolbar toolbar = super.initToolbar();
+        final ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setDisplayShowHomeEnabled(true);
+        }
+        return toolbar;
     }
 
     protected void downloadData() {
