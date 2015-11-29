@@ -5,6 +5,7 @@
     <color name="white">#fff</color>
     <color name="black">#000</color>
     <color name="red">#f00</color>
+    <color name="darkred">#B01818</color>
     <color name="orangered">#DB5948</color>
     <color name="green">#0f0</color>
     <color name="blue">#00f</color>
@@ -25,8 +26,9 @@
     <color name="colorAccent">#ff7e00</color>
 
     <color name="player_name">@color/yellow</color>
+    <color name="player_staff">@color/darkred</color>
     <color name="system_message">@color/grey_808080</color>
 
-    <color name="house_owned">#B01818</color>
+    <color name="house_owned">@color/darkred</color>
     <color name="house_forsale">#78AC38</color>
 </resources>

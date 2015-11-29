@@ -12,7 +12,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <!-- TODO: replace with big card-->
-        <include layout="@layout/card_player_mini" />
+        <include layout="@layout/card_player" />
     </LinearLayout>
 </merge>

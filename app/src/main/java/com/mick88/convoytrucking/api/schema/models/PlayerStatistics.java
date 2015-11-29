@@ -1,5 +1,7 @@
 package com.mick88.convoytrucking.api.schema.models;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by Michal on 27/11/2015.
  */
@@ -24,7 +26,8 @@ public class PlayerStatistics extends BaseModel {
     int heist;
     int failed;
     int overloads;
-    int truck_loads;
+    @SerializedName("truck_loads")
+    int truckLoads;
     int fuel;
     int interest;
     int odometer;
@@ -111,8 +114,8 @@ public class PlayerStatistics extends BaseModel {
         return overloads;
     }
 
-    public int getTruck_loads() {
-        return truck_loads;
+    public int getTruckLoads() {
+        return truckLoads;
     }
 
     public int getFuel() {

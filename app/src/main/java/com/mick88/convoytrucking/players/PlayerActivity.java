@@ -14,6 +14,7 @@ import com.mick88.convoytrucking.api.ModelRequest;
 import com.mick88.convoytrucking.api.schema.models.Player;
 import com.mick88.convoytrucking.api.schema.models.SimplePlayer;
 import com.mick88.convoytrucking.base.BaseActivity;
+import com.mick88.convoytrucking.utils.FormatUtils;
 
 /**
  * Created by Michal on 27/11/2015.
@@ -60,7 +61,31 @@ public class PlayerActivity extends BaseActivity implements Response.Listener<Pl
 
     @Override
     public void onResponse(Player response) {
-        final TextView tvPlayer = ((TextView) findViewById(R.id.tvPlayer));
-        tvPlayer.setText(response.getName());
+        setData(response);
+    }
+
+    protected void setData(Player player) {
+        final TextView
+                tvPlayer = ((TextView) findViewById(R.id.tvPlayer)),
+                tvConvoyScore = ((TextView) findViewById(R.id.tvConvoyScore)),
+                tvTruckLoads = ((TextView) findViewById(R.id.tvTruckLoads)),
+                tvLastSeen = ((TextView) findViewById(R.id.tvLastSeen)),
+                tvScore = ((TextView) findViewById(R.id.tvScore));
+
+        final String name = player.getName();
+        tvPlayer.setText(name);
+
+        // scores
+        final String score = FormatUtils.formatLargeNumber(player.getScore());
+        final String TruckLoads = FormatUtils.formatLargeNumber(player.getStatistics().getTruckLoads());
+        final String convoyScore = FormatUtils.formatLargeNumber(player.getConvoyScore());
+        tvScore.setText(getString(R.string.score_s, score));
+        tvConvoyScore.setText(getString(R.string.convoy_score_s, convoyScore));
+        tvTruckLoads.setText(getString(R.string.truck_loads_s, TruckLoads));
+
+        // last seen
+        final int lastSeen = player.getLastSeen();
+        final String timeAgo = FormatUtils.formatTimeAgo(lastSeen);
+        tvLastSeen.setText(getString(R.string.last_seen_s, timeAgo));
     }
 }
