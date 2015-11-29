@@ -19,4 +19,5 @@
     <string name="convoy_score_s">Convoy Score: %s</string>
     <string name="truck_loads_s">Truck Loads: %s</string>
     <string name="last_seen_s">Last seen: %s</string>
+    <string name="server_staff">Server Staff</string>
 </resources>

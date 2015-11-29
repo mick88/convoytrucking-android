@@ -6,4 +6,26 @@
 
     <include layout="@layout/card_server_info" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/card_margin"
+        android:layout_marginStart="@dimen/card_margin"
+        android:text="@string/server_staff"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large.CardTitle" />
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/card_margin">
+
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:divider="@color/transparent"
+            android:padding="@dimen/card_margin" />
+    </android.support.v7.widget.CardView>
+
 </LinearLayout>
