@@ -78,7 +78,7 @@ public class PlayerActivity extends BaseActivity implements Response.Listener<Pl
         int staffBadge = 0;
         int vipBadge = 0;
         if (player.isVip()) {
-            staffBadge = R.drawable.ic_vip;
+            vipBadge = R.drawable.ic_vip;
         }
         if (player.isStaff()) {
             staffBadge = R.drawable.ic_staff;
