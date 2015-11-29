@@ -11,4 +11,12 @@
     <string name="error_request">Connection error</string>
     <string name="s_slots">%d slots</string>
     <string name="current_owner">Current Owner</string>
+    <string name="player">Player</string>
+    <string name="staff_admin">Administrator</string>
+    <string name="staff_mod">Moderator</string>
+    <string name="staff_jrmod">Jr. Moderator</string>
+    <string name="score_s">Score: %s</string>
+    <string name="convoy_score_s">Convoy Score: %s</string>
+    <string name="truck_loads_s">Truck Loads: %s</string>
+    <string name="last_seen_s">Last seen: %s</string>
 </resources>

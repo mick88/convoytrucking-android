@@ -13,6 +13,7 @@ public class ApiConstants {
 
     public static final String API_CHAT = BASE_API + "chat/";
     public static final String API_HOUSES = BASE_API + "houses/";
+    public static final String API_PLAYERS = BASE_API + "players/";
     public static final String API_SERVER_INFO = BASE_API + "server-info";
 
     public static final String ENCODING = "utf-8";

@@ -19,6 +19,7 @@ import com.mick88.convoytrucking.api.VolleySingleton;
 import com.mick88.convoytrucking.api.schema.models.House;
 import com.mick88.convoytrucking.api.schema.models.SimplePlayer;
 import com.mick88.convoytrucking.base.BaseActivity;
+import com.mick88.convoytrucking.players.PlayerActivity;
 import com.mick88.convoytrucking.utils.FormatUtils;
 
 /**
@@ -92,6 +93,13 @@ public class HouseActivity extends BaseActivity implements Response.Listener<Hou
             tvOwner.setText(owner.getName());
             tvPlayer.setText(owner.getName());
             findViewById(R.id.layoutHouseOwner).setVisibility(View.VISIBLE);
+            findViewById(R.id.cardPlayer).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    final Intent intent = PlayerActivity.createIntent(HouseActivity.this, owner);
+                    startActivity(intent);
+                }
+            });
         }
     }
 }
