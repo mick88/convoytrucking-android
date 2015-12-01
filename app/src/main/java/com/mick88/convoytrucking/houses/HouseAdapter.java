@@ -27,7 +27,7 @@ public class HouseAdapter extends BaseAdapter<House, HouseViewHolder> {
 
     @Override
     public HouseViewHolder onCreateViewHolder(ViewGroup parent, int viewType, LayoutInflater layoutInflater) {
-        final View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_house, parent, false);
+        final View view = layoutInflater.inflate(R.layout.card_house, parent, false);
         return new HouseViewHolder(view);
     }
 
