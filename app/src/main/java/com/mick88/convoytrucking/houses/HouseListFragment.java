@@ -44,7 +44,7 @@ public class HouseListFragment extends ApiFragment<HouseFeed> {
 
         } else {
             final List<House> houses = Arrays.asList(response.getResults());
-            houseAdapter.addHouses(houses);
+            houseAdapter.addItems(houses);
         }
     }
 
