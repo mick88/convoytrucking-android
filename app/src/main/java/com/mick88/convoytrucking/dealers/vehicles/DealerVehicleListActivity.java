@@ -2,14 +2,12 @@ package com.mick88.convoytrucking.dealers.vehicles;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 
-import com.android.volley.Request;
 import com.mick88.convoytrucking.R;
 import com.mick88.convoytrucking.api.ApiConstants;
-import com.mick88.convoytrucking.api.ModelRequest;
-import com.mick88.convoytrucking.api.schema.feeds.VehicleFeed;
 import com.mick88.convoytrucking.api.schema.models.Dealer;
 import com.mick88.convoytrucking.vehicles.VehicleListActivity;
 
@@ -31,17 +29,24 @@ public class DealerVehicleListActivity extends VehicleListActivity {
     }
 
     @Override
-    protected void downloadVehicles() {
-        Dealer dealer = getIntent().getParcelableExtra(EXTRA_DEALER);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        final String url = buildUrl();
+        setUrl(url);
+    }
+
+    protected String buildUrl() {
+        final Dealer dealer = getIntent().getParcelableExtra(EXTRA_DEALER);
         final int[] offeredModels = dealer.getOfferedModels();
         String[] ids = new String[offeredModels.length];
         for (int i = 0; i < offeredModels.length; i++) {
             ids[i] = String.valueOf(offeredModels[i]);
         }
-        final String url = String.format(Locale.ENGLISH, "%s?modelid__in=%s", ApiConstants.API_VEHICLES, TextUtils.join(",", ids));
-
-        Request<VehicleFeed> request = new ModelRequest<>(url, VehicleFeed.class, this, this);
-        sendRequest(request);
+        return String.format(Locale.ENGLISH, "%s?modelid__in=%s",
+                ApiConstants.API_VEHICLES,
+                TextUtils.join(",", ids)
+        );
     }
 
     public static Intent createIntent(Context context, Dealer dealer) {

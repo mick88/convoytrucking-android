@@ -18,5 +18,7 @@ public class ApiConstants {
     public static final String API_VEHICLES = BASE_API + "vehicles/";
     public static final String API_SERVER_INFO = BASE_API + "server-info";
 
+    public static final String API_HOUSES_FORSALE = API_HOUSES + "?ownerid__isnull=true";
+
     public static final String ENCODING = "utf-8";
 }

@@ -14,23 +14,47 @@ import com.mick88.convoytrucking.R;
 import com.mick88.convoytrucking.api.ApiConstants;
 import com.mick88.convoytrucking.api.ModelRequest;
 import com.mick88.convoytrucking.api.schema.feeds.VehicleFeed;
+import com.mick88.convoytrucking.api.schema.models.Vehicle;
 import com.mick88.convoytrucking.base.BaseActivity;
+
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by Michal on 29/11/2015.
  */
 public class VehicleListActivity extends BaseActivity implements Response.Listener<VehicleFeed> {
+    protected String url = ApiConstants.API_VEHICLES;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
         initToolbar();
 
+        final RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        initRecyclerView(recyclerView);
+    }
+
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
         downloadVehicles();
     }
 
+    void initRecyclerView(RecyclerView recyclerView) {
+        final int numColumns = getResources().getInteger(R.integer.grid_columns);
+        final RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this, numColumns);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setHasFixedSize(true);
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
     protected void downloadVehicles() {
-        Request<VehicleFeed> request = new ModelRequest<>(ApiConstants.API_VEHICLES, VehicleFeed.class, this, this);
+        Request<VehicleFeed> request = new ModelRequest<>(url, VehicleFeed.class, this, this);
         sendRequest(request);
     }
 
@@ -52,10 +76,23 @@ public class VehicleListActivity extends BaseActivity implements Response.Listen
     @Override
     public void onResponse(VehicleFeed response) {
         final RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-        final int numColumns = getResources().getInteger(R.integer.grid_columns);
-        final RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this, numColumns);
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setAdapter(new VehicleAdapter(this, response.getResults()));
+        url = response.getNext();
+
+        VehicleAdapter adapter = (VehicleAdapter) recyclerView.getAdapter();
+        if (adapter == null) {
+            adapter = new VehicleAdapter(this, response.getResults());
+            recyclerView.setAdapter(adapter);
+        } else {
+            final List<Vehicle> vehicles = Arrays.asList(response.getResults());
+            adapter.addItems(vehicles);
+        }
+
+        loadMoreVehicles();
+    }
+
+    void loadMoreVehicles() {
+        if (url != null) {
+            downloadVehicles();
+        }
     }
 }
