@@ -26,7 +26,17 @@ public class VehicleListActivity extends BaseActivity implements Response.Listen
         setContentView(R.layout.activity_list);
         initToolbar();
 
+        final RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        initRecyclerView(recyclerView);
+
         downloadVehicles();
+    }
+
+    void initRecyclerView(RecyclerView recyclerView) {
+        final int numColumns = getResources().getInteger(R.integer.grid_columns);
+        final RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this, numColumns);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setHasFixedSize(true);
     }
 
     protected void downloadVehicles() {
@@ -52,10 +62,8 @@ public class VehicleListActivity extends BaseActivity implements Response.Listen
     @Override
     public void onResponse(VehicleFeed response) {
         final RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-        final int numColumns = getResources().getInteger(R.integer.grid_columns);
-        final RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this, numColumns);
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setAdapter(new VehicleAdapter(this, response.getResults()));
+
+        final VehicleAdapter adapter = new VehicleAdapter(this, response.getResults());
+        recyclerView.setAdapter(adapter);
     }
 }

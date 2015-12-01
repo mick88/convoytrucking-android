@@ -12,17 +12,23 @@ import com.mick88.convoytrucking.api.VolleySingleton;
 import com.mick88.convoytrucking.api.schema.models.House;
 import com.mick88.convoytrucking.utils.FormatUtils;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
+
 /**
  * Created by Michal on 25/11/2015.
  */
 public class HouseAdapter extends RecyclerView.Adapter<HouseViewHolder> {
-    protected final House[] houses;
+    protected final List<House> houses;
     protected final ImageLoader imageLoader;
     protected final Context context;
 
     public HouseAdapter(Context context, House[] houses) {
         super();
-        this.houses = houses;
+        final List<House> houseList = Arrays.asList(houses);
+        this.houses = new ArrayList<>(houseList);
         this.context = context;
         imageLoader = VolleySingleton.getInstance(context).getImageLoader();
     }
@@ -35,7 +41,7 @@ public class HouseAdapter extends RecyclerView.Adapter<HouseViewHolder> {
 
     @Override
     public void onBindViewHolder(HouseViewHolder holder, int position) {
-        final House house = houses[position];
+        final House house = houses.get(position);
 
         holder.currentItem = house;
 
@@ -55,6 +61,12 @@ public class HouseAdapter extends RecyclerView.Adapter<HouseViewHolder> {
 
     @Override
     public int getItemCount() {
-        return houses.length;
+        return houses.size();
+    }
+
+    public void addHouses(Collection<House> newHouses) {
+        int start = this.houses.size();
+        this.houses.addAll(newHouses);
+        notifyItemRangeInserted(start, newHouses.size());
     }
 }

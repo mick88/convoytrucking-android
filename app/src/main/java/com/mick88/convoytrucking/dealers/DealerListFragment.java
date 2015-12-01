@@ -2,7 +2,6 @@ package com.mick88.convoytrucking.dealers;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -51,10 +50,6 @@ public class DealerListFragment extends ApiFragment<DealerFeed> {
     public void onResponse(DealerFeed response) {
         super.onResponse(response);
         final RecyclerView recyclerView = (RecyclerView) getView().findViewById(R.id.recyclerView);
-        final int numColumns = getResources().getInteger(R.integer.grid_columns);
-        final RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getContext(), numColumns);
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setHasFixedSize(true);
 
         DealerAdapter adapter = new DealerAdapter(getContext(), response.getResults());
         recyclerView.setAdapter(adapter);
