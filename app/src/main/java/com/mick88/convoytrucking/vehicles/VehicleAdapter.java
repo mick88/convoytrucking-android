@@ -12,18 +12,22 @@ import com.mick88.convoytrucking.api.VolleySingleton;
 import com.mick88.convoytrucking.api.schema.models.Vehicle;
 import com.mick88.convoytrucking.utils.FormatUtils;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
 import java.util.Locale;
 
 /**
  * Created by Michal on 29/11/2015.
  */
 public class VehicleAdapter extends RecyclerView.Adapter<VehicleViewHolder> {
-    protected final Vehicle[] vehicles;
+    protected final List<Vehicle> vehicles;
     protected final Context context;
     protected final ImageLoader imageLoader;
 
     public VehicleAdapter(Context context, Vehicle[] vehicles) {
-        this.vehicles = vehicles;
+        this.vehicles = new ArrayList<>(Arrays.asList(vehicles));
         this.context = context;
         this.imageLoader = VolleySingleton.getInstance(context).getImageLoader();
     }
@@ -36,7 +40,7 @@ public class VehicleAdapter extends RecyclerView.Adapter<VehicleViewHolder> {
 
     @Override
     public void onBindViewHolder(VehicleViewHolder holder, int position) {
-        final Vehicle vehicle = vehicles[position];
+        final Vehicle vehicle = vehicles.get(position);
 
         holder.imageView.setImageUrl(vehicle.getImageUrl(Vehicle.VEHICLE_IMAGE_MEDIUM), imageLoader);
         holder.tvName.setText(vehicle.getName());
@@ -55,6 +59,12 @@ public class VehicleAdapter extends RecyclerView.Adapter<VehicleViewHolder> {
 
     @Override
     public int getItemCount() {
-        return vehicles.length;
+        return vehicles.size();
+    }
+
+    public void addItems(Collection<Vehicle> newVehicles) {
+        final int start = vehicles.size();
+        vehicles.addAll(newVehicles);
+        notifyItemRangeInserted(start, newVehicles.size());
     }
 }

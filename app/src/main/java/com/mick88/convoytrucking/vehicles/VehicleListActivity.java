@@ -14,12 +14,18 @@ import com.mick88.convoytrucking.R;
 import com.mick88.convoytrucking.api.ApiConstants;
 import com.mick88.convoytrucking.api.ModelRequest;
 import com.mick88.convoytrucking.api.schema.feeds.VehicleFeed;
+import com.mick88.convoytrucking.api.schema.models.Vehicle;
 import com.mick88.convoytrucking.base.BaseActivity;
+
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by Michal on 29/11/2015.
  */
 public class VehicleListActivity extends BaseActivity implements Response.Listener<VehicleFeed> {
+    protected String url = ApiConstants.API_VEHICLES;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,7 +34,11 @@ public class VehicleListActivity extends BaseActivity implements Response.Listen
 
         final RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         initRecyclerView(recyclerView);
+    }
 
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
         downloadVehicles();
     }
 
@@ -39,8 +49,12 @@ public class VehicleListActivity extends BaseActivity implements Response.Listen
         recyclerView.setHasFixedSize(true);
     }
 
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
     protected void downloadVehicles() {
-        Request<VehicleFeed> request = new ModelRequest<>(ApiConstants.API_VEHICLES, VehicleFeed.class, this, this);
+        Request<VehicleFeed> request = new ModelRequest<>(url, VehicleFeed.class, this, this);
         sendRequest(request);
     }
 
@@ -62,8 +76,23 @@ public class VehicleListActivity extends BaseActivity implements Response.Listen
     @Override
     public void onResponse(VehicleFeed response) {
         final RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        url = response.getNext();
 
-        final VehicleAdapter adapter = new VehicleAdapter(this, response.getResults());
-        recyclerView.setAdapter(adapter);
+        VehicleAdapter adapter = (VehicleAdapter) recyclerView.getAdapter();
+        if (adapter == null) {
+            adapter = new VehicleAdapter(this, response.getResults());
+            recyclerView.setAdapter(adapter);
+        } else {
+            final List<Vehicle> vehicles = Arrays.asList(response.getResults());
+            adapter.addItems(vehicles);
+        }
+
+        loadMoreVehicles();
+    }
+
+    void loadMoreVehicles() {
+        if (url != null) {
+            downloadVehicles();
+        }
     }
 }
