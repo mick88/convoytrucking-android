@@ -3,6 +3,7 @@ package com.mick88.convoytrucking;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -25,6 +26,6 @@ public class MainActivityInstrumentationTest {
 
     @Test
     public void testActivityLaunch() throws Exception {
-        assert activity != null;
+        Assert.assertNotNull(activity);
     }
 }
