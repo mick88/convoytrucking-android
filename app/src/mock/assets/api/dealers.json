@@ -1,0 +1,67 @@
+{
+  "count": 2,
+  "next": null,
+  "previous": null,
+  "results": [
+    {
+      "dealerid": 1,
+      "offered_models": [
+        456,
+        455,
+        578,
+        403,
+        514,
+        515,
+        525,
+        437,
+        431,
+        524,
+        408,
+        443,
+        433
+      ],
+      "image_path": "dealers/blueberry-trucks.png",
+      "dealername": "Blueberry Trucks",
+      "dealerx": 39.6249,
+      "dealery": -290.179,
+      "dealerz": 2.0138,
+      "spawnx": 52.4596,
+      "spawny": -286.488,
+      "spawnz": 2.7203,
+      "spawnr": 357.121
+    },
+    {
+      "dealerid": 2,
+      "offered_models": [
+        445,
+        542,
+        401,
+        518,
+        470,
+        439,
+        559,
+        603,
+        575,
+        566,
+        576,
+        561,
+        474,
+        526,
+        527,
+        540,
+        546,
+        547,
+        420
+      ],
+      "image_path": "dealers/shody-used-autos.png",
+      "dealername": "Shody Used Autos",
+      "dealerx": 1670.25,
+      "dealery": 1814.15,
+      "dealerz": 10.8203,
+      "spawnx": 1668.99,
+      "spawny": 1836.9,
+      "spawnz": 10.5474,
+      "spawnr": 181.693
+    }
+  ]
+}

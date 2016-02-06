@@ -1,0 +1,52 @@
+{
+  "count": 3,
+  "next": null,
+  "previous": null,
+  "results": [
+    {
+      "id": 56,
+      "image_name": "house_56.jpg",
+      "ownerid": null,
+      "x": 1331.67,
+      "y": -632.403,
+      "z": 109.135,
+      "r": 22.4244,
+      "interior": 14,
+      "range": 43.6841,
+      "price": 56000000,
+      "location": "Mulholland, Red County",
+      "parking": 7,
+      "radio_station": null
+    },
+    {
+      "id": 1497,
+      "image_name": "house_1497.jpg",
+      "ownerid": null,
+      "x": -2366.54,
+      "y": 6371.63,
+      "z": 13.7003,
+      "r": 269.32,
+      "interior": 3,
+      "range": 35.8878,
+      "price": 24000000,
+      "location": "Dutchmen Keys, Milestone County",
+      "parking": 6,
+      "radio_station": null
+    },
+    {
+      "id": 960,
+      "image_name": "house_960.jpg",
+      "ownerid": null,
+      "x": -1363.2,
+      "y": 499.769,
+      "z": 18.2344,
+      "r": 1.35118,
+      "interior": 5,
+      "range": 0.043118,
+      "price": 40000000,
+      "location": "Easter Basin, San Fierro",
+      "parking": 5,
+      "radio_station": null
+    }
+  ]
+}

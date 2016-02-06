@@ -32,6 +32,7 @@ android {
         targetSdkVersion 23
         versionCode getVersionCode()
         versionName getVersionName()
+        buildConfigField 'boolean', 'MOCK_RESPONSES', 'false'
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
@@ -48,6 +49,10 @@ android {
         development {
             buildConfigField "String", "BASE_URL", '"http://test.convoytrucking.net/"'
         }
+        mock {
+            buildConfigField "String", "BASE_URL", '"file:///android_asset/"'
+            buildConfigField 'boolean', 'MOCK_RESPONSES', 'true'
+        }
     }
 }
 
@@ -58,6 +63,7 @@ dependencies {
     androidTestCompile 'com.android.support.test.espresso:espresso-core:2.1'
     androidTestCompile 'com.android.support:support-annotations:23.1.1'
 
+    compile 'org.apache.httpcomponents:httpcore:4.4.3'
     compile 'com.android.support:appcompat-v7:23.1.1'
     compile 'com.android.support:cardview-v7:23.1.1'
     compile 'com.android.support:design:23.1.1'
