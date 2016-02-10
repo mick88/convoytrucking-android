@@ -3,9 +3,13 @@ package com.mick88.convoytrucking.api;
 import android.content.Context;
 
 import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.HttpStack;
+import com.android.volley.toolbox.HurlStack;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.Volley;
+import com.mick88.convoytrucking.BuildConfig;
 import com.mick88.convoytrucking.utils.BitmapCache;
+import com.mick88.convoytrucking.utils.MockHttpStack;
 
 /**
  * Created by lduffy on 17/04/15.
@@ -31,7 +35,10 @@ public class VolleySingleton {
 
     public RequestQueue getRequestQueue() {
         if (requestQueue == null) {
-            requestQueue = Volley.newRequestQueue(context.getApplicationContext());
+            final HttpStack stack;
+            if (BuildConfig.MOCK_RESPONSES) stack = new MockHttpStack(context.getAssets());
+            else stack = new HurlStack();
+            requestQueue = Volley.newRequestQueue(context.getApplicationContext(), stack, -1);
         }
         return requestQueue;
     }
