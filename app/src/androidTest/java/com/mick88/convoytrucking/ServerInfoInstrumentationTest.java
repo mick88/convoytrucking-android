@@ -1,11 +1,13 @@
 package com.mick88.convoytrucking;
 
+import android.support.test.espresso.Espresso;
 import android.support.test.espresso.intent.Intents;
 import android.support.test.espresso.matcher.ViewMatchers;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 import android.view.View;
 
+import com.mick88.convoytrucking.api.VolleySingleton;
 import com.mick88.convoytrucking.server_info.ServerInfoFragment;
 
 import org.hamcrest.Matcher;
@@ -40,6 +42,7 @@ public class ServerInfoInstrumentationTest {
     @Before
     public void setUp() throws Exception {
         activity = activityTestRule.getActivity();
+        Espresso.registerIdlingResources(new VolleyIdlingResource(VolleySingleton.getInstance(activity).getRequestQueue()));
         activity.showFragment(new ServerInfoFragment());
     }
 

@@ -1,9 +1,12 @@
 package com.mick88.convoytrucking;
 
+import android.support.test.espresso.Espresso;
 import android.support.test.espresso.assertion.ViewAssertions;
 import android.support.test.espresso.contrib.DrawerActions;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
+
+import com.mick88.convoytrucking.api.VolleySingleton;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -28,6 +31,7 @@ public class MainActivityInstrumentationTest {
     @Before
     public void setUp() throws Exception {
         activity = activityTestRule.getActivity();
+        Espresso.registerIdlingResources(new VolleyIdlingResource(VolleySingleton.getInstance(activity).getRequestQueue()));
     }
 
     @Test
