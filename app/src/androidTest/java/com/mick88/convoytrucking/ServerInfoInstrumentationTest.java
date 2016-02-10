@@ -1,13 +1,13 @@
 package com.mick88.convoytrucking;
 
 import android.support.test.espresso.Espresso;
-import android.support.test.espresso.intent.Intents;
 import android.support.test.espresso.intent.rule.IntentsTestRule;
 import android.support.test.espresso.matcher.ViewMatchers;
 import android.support.test.runner.AndroidJUnit4;
 import android.view.View;
 
 import com.mick88.convoytrucking.api.VolleySingleton;
+import com.mick88.convoytrucking.players.PlayerActivity;
 import com.mick88.convoytrucking.server_info.ServerInfoFragment;
 
 import org.hamcrest.Matcher;
@@ -21,13 +21,14 @@ import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.intent.Intents.assertNoUnverifiedIntents;
+import static android.support.test.espresso.intent.Intents.intended;
 import static android.support.test.espresso.intent.matcher.BundleMatchers.hasEntry;
 import static android.support.test.espresso.intent.matcher.IntentMatchers.hasExtras;
+import static android.support.test.espresso.intent.matcher.IntentMatchers.toPackage;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.Matchers.allOf;
-import static org.hamcrest.core.IsEqual.equalTo;
 import static org.hamcrest.object.HasToString.hasToString;
 
 /**
@@ -67,10 +68,11 @@ public class ServerInfoInstrumentationTest {
         onData(hasToString("mick88"))
                 .inAdapterView(listViewMatcher).perform(click());
 
-        Intents.intended(hasExtras(allOf(
-            hasEntry(equalTo("player_name"), equalTo("mick88")),
-            hasEntry(equalTo("player_id"), equalTo("1")))
-        ));
+        intended(toPackage(BuildConfig.APPLICATION_ID));
+        intended(hasExtras(allOf(
+                hasEntry(PlayerActivity.EXTRA_PLAYER_NAME, "mick88"),
+                hasEntry(PlayerActivity.EXTRA_PLAYER_ID, 1L)
+        )));
 
         assertNoUnverifiedIntents();
     }
