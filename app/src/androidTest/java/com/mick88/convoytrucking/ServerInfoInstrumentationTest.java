@@ -66,9 +66,9 @@ public class ServerInfoInstrumentationTest {
         onData(hasToString("mick88"))
                 .inAdapterView(listViewMatcher).perform(click());
 
-        Intents.intended((hasExtras(allOf(
+        Intents.intended(hasExtras(allOf(
             hasEntry(equalTo("player_name"), equalTo("mick88")),
             hasEntry(equalTo("player_id"), equalTo("1")))
-        )));
+        ));
     }
 }
