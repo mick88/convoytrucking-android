@@ -15,4 +15,4 @@ before_script:
 script:
     - git fetch --unshallow
     - chmod +x gradlew
-    - ./gradlew connectedAndroidTest
+    - ./gradlew connectedMockDebugAndroidTest
