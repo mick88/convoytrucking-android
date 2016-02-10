@@ -1,25 +1,33 @@
 apply plugin: 'com.android.application'
 
 def getVersionName = { ->
-    def stdout = new ByteArrayOutputStream()
-    // Automatically generate version name from latest git tag
-    // If for some reason you cant run git describe, replace this method with a literal string
-    exec {
-        commandLine 'git', 'describe', '--tags'
-        standardOutput = stdout
+    try {
+        def stdout = new ByteArrayOutputStream()
+        // Automatically generate version name from latest git tag
+        // If for some reason you cant run git describe, replace this method with a literal string
+        exec {
+            commandLine 'git', 'describe', '--tags'
+            standardOutput = stdout
+        }
+        return stdout.toString().trim()
+    } catch (Exception ignored) {
+        return "unknown"
     }
-    return stdout.toString().trim()
 }
 
 def getVersionCode = { ->
-    def stdout = new ByteArrayOutputStream()
-    // Automatically generate version number based on the number of commits
-    // If for some reason you cant run git describe, replace this method with a literal integer
-    exec {
-        commandLine 'git', 'rev-list', 'HEAD', '--count'
-        standardOutput = stdout
+    try {
+        def stdout = new ByteArrayOutputStream()
+        // Automatically generate version number based on the number of commits
+        // If for some reason you cant run git describe, replace this method with a literal integer
+        exec {
+            commandLine 'git', 'rev-list', 'HEAD', '--count'
+            standardOutput = stdout
+        }
+        return stdout.toString().trim().toInteger()
+    } catch (Exception ignored) {
+        return 1
     }
-    return stdout.toString().trim().toInteger()
 }
 
 android {
