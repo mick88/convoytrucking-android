@@ -11,6 +11,7 @@ public class ApiConstants {
     public static final String URL_STATICFILES = BuildConfig.BASE_URL + "static/";
     public static final String URL_MEDIA = BuildConfig.BASE_URL + "media/";
 
+    public static final String API_NEWS = BASE_API + "news/";
     public static final String API_CHAT = BASE_API + "chat/";
     public static final String API_HOUSES = BASE_API + "houses/";
     public static final String API_PLAYERS = BASE_API + "players/";
