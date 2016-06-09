@@ -40,6 +40,7 @@ android {
         targetSdkVersion 23
         versionCode getVersionCode()
         versionName getVersionName()
+        resValue "string", "version_name", getVersionName()
         buildConfigField 'boolean', 'MOCK_RESPONSES', 'false'
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
