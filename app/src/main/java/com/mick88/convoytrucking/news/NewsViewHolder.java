@@ -1,6 +1,7 @@
 package com.mick88.convoytrucking.news;
 
 import android.support.v7.widget.RecyclerView;
+import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.widget.TextView;
 
@@ -16,5 +17,7 @@ public class NewsViewHolder extends RecyclerView.ViewHolder {
         super(view);
         this.tvTitle = (TextView) view.findViewById(R.id.tvTitle);
         this.tvContent = (TextView) view.findViewById(R.id.tvContent);
+
+        this.tvContent.setMovementMethod(LinkMovementMethod.getInstance());
     }
 }
