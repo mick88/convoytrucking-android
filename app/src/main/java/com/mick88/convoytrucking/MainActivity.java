@@ -13,6 +13,7 @@ import com.mick88.convoytrucking.base.BaseFragment;
 import com.mick88.convoytrucking.chat.ChatFragment;
 import com.mick88.convoytrucking.dealers.DealerListFragment;
 import com.mick88.convoytrucking.houses.HouseListFragment;
+import com.mick88.convoytrucking.news.NewsFragment;
 import com.mick88.convoytrucking.server_info.ServerInfoFragment;
 
 /**
@@ -30,7 +31,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         setupNavDrawer();
 
         if (savedInstanceState == null) {
-            BaseFragment fragment = new ServerInfoFragment();
+            BaseFragment fragment = new NewsFragment();
             showFragment(fragment);
         }
     }
@@ -86,6 +87,10 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
 
             case R.id.menu_dealers:
                 fragment = new DealerListFragment();
+                break;
+
+            case R.id.menu_news:
+                fragment = new NewsFragment();
                 break;
         }
         if (fragment != null) {
