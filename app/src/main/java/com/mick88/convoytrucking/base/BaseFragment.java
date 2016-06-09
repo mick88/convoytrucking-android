@@ -1,6 +1,5 @@
 package com.mick88.convoytrucking.base;
 
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.widget.Toast;
 
@@ -13,12 +12,6 @@ import com.mick88.convoytrucking.api.VolleySingleton;
  * Created by Michal on 03/11/2015.
  */
 public class BaseFragment extends Fragment implements Response.ErrorListener {
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setRetainInstance(true);
-    }
-
     protected void sendRequest(Request<?> request) {
         if (isAdded() == false) throw new IllegalStateException("Fragment is not attached");
         request.setTag(this);
