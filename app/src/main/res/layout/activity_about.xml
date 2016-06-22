@@ -59,6 +59,13 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="github"
                 android:src="@drawable/ic_github" />
+
+            <ImageButton
+                android:id="@+id/btnShare"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="share"
+                android:src="@drawable/ic_share" />
         </LinearLayout>
 
     </LinearLayout>

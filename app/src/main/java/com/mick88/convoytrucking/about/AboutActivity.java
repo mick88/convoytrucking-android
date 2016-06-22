@@ -55,6 +55,14 @@ public class AboutActivity extends BaseActivity implements View.OnClickListener 
                 Intent githubIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/mick88/convoytrucking2"));
                 startActivity(githubIntent);
                 break;
+
+            case R.id.btnShare:
+                Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Convoy Trucking app");
+                shareIntent.putExtra(Intent.EXTRA_TEXT, "https://play.google.com/store/apps/details?id=com.mick88.convoytrucking");
+                shareIntent.setType("text/plain");
+                startActivity(shareIntent);
+                break;
         }
     }
 }
