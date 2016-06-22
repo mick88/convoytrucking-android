@@ -39,6 +39,11 @@
             android:label="@string/vehicles"
             android:parentActivityName=".MainActivity">
         </activity>
+        <activity
+            android:name=".about.AboutActivity"
+            android:label="@string/about"
+            android:parentActivityName=".MainActivity">
+        </activity>
 
     </application>
 

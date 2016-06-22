@@ -1,5 +1,6 @@
 package com.mick88.convoytrucking;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -8,6 +9,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+import com.mick88.convoytrucking.about.AboutActivity;
 import com.mick88.convoytrucking.base.BaseActivity;
 import com.mick88.convoytrucking.base.BaseFragment;
 import com.mick88.convoytrucking.chat.ChatFragment;
@@ -92,6 +94,11 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
             case R.id.menu_news:
                 fragment = new NewsFragment();
                 break;
+
+            case R.id.menu_about:
+                final Intent aboutIntent = new Intent(this, AboutActivity.class);
+                startActivity(aboutIntent);
+                return true;
         }
         if (fragment != null) {
             showFragment(fragment);
