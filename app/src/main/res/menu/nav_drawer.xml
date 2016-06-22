@@ -24,4 +24,8 @@
             android:icon="@drawable/ic_dealer"
             android:title="@string/dealers" />
     </group>
+    <item
+        android:id="@+id/menu_about"
+        android:icon="@drawable/ic_about"
+        android:title="@string/about" />
 </menu>

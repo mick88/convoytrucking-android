@@ -27,4 +27,6 @@
     <string name="all_vehicles">All vehicles</string>
     <string name="AllVehiclesCondensed">All</string>
     <string name="news">News</string>
+    <string name="about">About</string>
+    <string name="credits">Developed by Michał Dąbski (mick88)</string>
 </resources>
