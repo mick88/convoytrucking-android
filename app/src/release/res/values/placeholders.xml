@@ -8,4 +8,5 @@
     <string name="placeholder_server_address" />
     <string name="placeholoder_dealer_name" />
     <string name="placeholoder_vehicle_name" />
+    <string name="placeholder_players_online" />
 </resources>
