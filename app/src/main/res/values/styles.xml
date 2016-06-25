@@ -17,7 +17,7 @@
     </style>
 
     <style name="card" parent="CardView">
-        <!-- Base style for all cards to add ripple effect and make margins consistend across android versions-->
+        <!-- Base style for all cards to add ripple effect and make margins consistent across android versions-->
         <item name="android:foreground">?selectableItemBackground</item>
         <item name="cardUseCompatPadding">true</item>
         <item name="cardCornerRadius">1dp</item>
